@@ -14,7 +14,7 @@
 * 网页文件最好使用utf-8，no BOM 这种编码来进行保存。
 
 * 网页基本结构
-
+    <pre><code>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -25,3 +25,4 @@
 
     </body>
     </html>
+    </code></pre>
