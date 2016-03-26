@@ -106,7 +106,7 @@
         * normal、bold、bolder、lighter 或 100的倍数
         * normal、small-caps
         * font-size
-        * /line-height
+        * line-height
         * 字体系列，字体以逗号分隔
     * 颜色
         * `color:red;`
@@ -118,6 +118,7 @@
         * #rrggbb;
         * IE8不支持HSL和alpha透明度
     * 背景
+        * background
         ```
         background-color                       /*默认值transparent透明*/
         background-image:url(bg-pattern.png);  /*默认值none*/
@@ -150,5 +151,23 @@
         text-transform:none;                  /*保持原样、取消继承的值*/
         ```
     * 小型大写字母
-        * `font-variant:small-caps;`          /*设置*/
-        * `font-variant:none;`                /*取消*/
+        * font-variant
+        ```
+        font-variant:small-caps;          /*设置*/
+        font-variant:none;                /*取消*/
+        ```
+    * 装饰文本
+        * text-decoration
+        ```
+        text-decoration:underline;            /*下划线*/
+        text-decoration:overline;             /*上划线*/
+        text-decoration:line-through;         /*删除线*/
+        text-decoration:none;
+        ```
+    * 设置空白属性
+        * white-space
+        ```
+        white-space:pre;                      /*显示所有的空格和回车*/
+        white-space:nowrap;                   /*确保所有空格不换行，也就是文本全部显示在一行*/
+        white-space:normal;                   /*按正常方式处理空格*/
+        ```
