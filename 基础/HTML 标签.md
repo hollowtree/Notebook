@@ -1,5 +1,8 @@
 * p 段落
 
+* a 链接
+    * rel="external" 外部链接最好加上
+
 * small 免责声明、注解、署名等
 
 * strong 表示内容的重要性，在HTML5中，strong表示的是重要程度，而不是表示强调
