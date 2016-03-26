@@ -8,6 +8,10 @@
 
 * figure 图 `<figure><figcaption>[...]</figcaption></figure>`
 
+* img 添加图像
+    * src 提供了将要插入的图像的名称
+    * alt 提供了在图像无法获取时应该显示的文本
+
 * cite 表示对某内容源的引用或参考。例如，戏剧或书本的标题，歌曲、照片或电影的名称，规范、报纸或法律文件等。
 
 * blockquote q 引述文本（块级、行内），可以使用可选的cite属性，提供引述内容来源的URL。

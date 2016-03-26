@@ -26,7 +26,7 @@
         <title></title>
     </head>
     <body>
-        <!--标记页眉-->
+        <!--标记页眉 还有群组元素hgroup-->
         <header role="banner">
             <!--标记重要导航-->
             <nav role="navigation">
