@@ -107,14 +107,14 @@
 * 修改鼠标指针
     * cursor
     ```
-cursor:default;
-cursor:pointer;
-cursor:crosshair;
-cursor:move;
-cursor:wait;
-cursor:help;
-cursor:text;
-cursor:progress;
-cursor:auto;
-cursor:x-resize;    /*x的取值为n（北）、nw（西北）、e（东）等*/
+    cursor:default;
+    cursor:pointer;
+    cursor:crosshair;
+    cursor:move;
+    cursor:wait;
+    cursor:help;
+    cursor:text;
+    cursor:progress;
+    cursor:auto;
+    cursor:x-resize;    /*x的取值为n（北）、nw（西北）、e（东）等*/
     ```
