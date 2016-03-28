@@ -54,15 +54,16 @@
         a:active{ }      /*激活时*/
         ```
     1. 按属性选择元素
-        选择器               | 属性值
-        ---------------------|------
-        [attribute]          | 匹配指定属性，不论具体值是什么
-        [attribute="value"]  | 完全匹配指定属性值
-        [attribute~="value"] | 属性值是以空格分隔的多个单词，其中有一个完全匹配指定值
-        [attribute|="value"] | 属性值以 value- 打头
-        [attribute^="value"] | 属性值以 value 开头，value为完整的单词或单词的一部分
-        [attribute$="value"] | 属性值以 value 结尾，value为完整的单词或单词的一部分
-        [attribute*="value"] | 属性值为指定值的子字符串
+        |选择器               | 属性值 |
+        |---------------------|------ |
+        |[attribute]          | 匹配指定属性，不论具体值是什么 |
+        |[attribute="value"]  | 完全匹配指定属性值 |
+        |[attribute~="value"] | 属性值是以空格分隔的多个单词，其中有一个完全匹配指定值 |
+        |[attribute|="value"] | 属性值以 value- 打头 |
+        |[attribute^="value"] | 属性值以 value 开头，value为完整的单词或单词的一部分 |
+        |[attribute$="value"] | 属性值以 value 结尾，value为完整的单词或单词的一部分 |
+        |[attribute*="value"] | 属性值为指定值的子字符串 |
+
         ```
         p[class]{ };     /*所有具有class属性的段落*/
         ```
