@@ -171,3 +171,187 @@
         white-space:nowrap;                   /*确保所有空格不换行，也就是文本全部显示在一行*/
         white-space:normal;                   /*按正常方式处理空格*/
         ```
+
+* 列表
+    * 选择标记
+        * list-style-type
+        * disc圆点、circle圆圈、square方块、decimal数字、upper-alpha大写字母、lower-alpha小写字母、upper-roman大写罗马字母、lower-roman小写罗马字母、none无标记列表
+    * 使用定制的标记
+        * background:url(image.png);
+    * 选择有序列表的起始编号
+        * 在ol开始标签里输入start="n"，这里n表示列表的初始值
+        * 在li开始标签里输入value="n"，这里n表示该列表项目的值，并且会影响到后续列表项目的值
+    * 控制标记的位置
+        * ul{list-style-position:inside;}
+        * ul{list-style-position:outside;}   默认
+    * 列表行高
+        * li{line-height:1.3;}     增大文本行间距
+    * 同时设置所有的列表样式属性
+    ```
+    list-style:[disc/circle/none/...]\ [inside/outside]
+    ```
+    * 创建描述列表(description list)
+        * dl dt dd
+
+* 表单
+    * HTML5表单
+        * 浏览器支持 email、search、tel、url
+        * 部分支持 date number range 数据列表
+        * 其它 color、datetime、datetime-local、month、time、week...
+    * 创建表单
+    ```
+    <form method="post" action="show-data.php">
+        <fieldset>
+            <h2></h2>
+            <p>
+                <label></label>
+                <input />
+            </p>
+            <p>
+                <label></label>
+                <input />
+            </p>
+        </fieldset>
+        <fieldset>
+                <legend>文本，不太好加样式</legend>
+                <label></label>
+                <input />
+        </fieldset>
+    </form>
+    ```
+    * 创建文本框
+        * `<label for="idlabel">Name</label>`
+        * type="text"
+        * name="dataname"
+        * id="idlabel"
+        * value="default"
+        * placeholder="hinttext"
+        * required="required"
+        * autofocus="autofocus" 或 autofocus
+        * size="n"                             文本框的大小
+        * maxlength="n"                        允许输入的最大字符数
+    * 为表单组件添加说明标签
+        * <label></label>
+        * for属性的值与表单字段的id的值相同
+        ```
+        label{
+            cursor:pointer;
+            vertical-align:top;     /*使标签与相关的表单字段对齐*/
+        }
+        ```
+        * for和id的命名中单词可以用连字符-分开，name可以用下划线_分开
+    * 创建密码框
+        * type="password"
+    * 创建单选按钮
+        * type="radio"
+        * 同一组单选按钮的name属性值必须相同
+        * value属性值也很重要，因为访问者无法输入值
+        * checked checked="checked"
+    * 创建复选框
+        * type="checkbox"
+    * 创建文本区域
+        * type="textarea"
+        * 如果不设置max-length，最多输入32700字符
+        * resize:none;        使文本区域大小不能改变
+        * cols="n"            宽度
+        * rows="n"            高度
+    * 创建选择框
+        * select
+        ```
+        <select id="state" name="state">
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            ...
+        </select>
+        ```
+        `select{font-size:inherit;}`使菜单文本和父元素字号相同
+        * 给option添加selected属性，默认选中
+        * 给选择框选项进行分组
+         ```
+        <select id="state" name="state">
+            <optgroup label="Online">
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </optgroup>
+            <optgroup label="Offline">
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </optgroup>
+            ...
+        </select>
+        ```
+    * 让访问者上传文件
+        * 对于允许上传的表单，不鞥你使用get方法
+        ```
+        <form method="post" action="show-data.php" enctype="multipart/form-data">   /*enctype确保文件采用正确的格式上传*/
+            <label for="picture">Picture</label>
+            <input type="file" id="picture" name="picture" />     /*可以加multiple来上传多个文件*/
+        </form>
+        ```
+    * 创建隐藏字段
+        * <input type="hidden" name="step" value="6" />
+    * 创建提交按钮
+        * 按钮`<input type="submit" value="Create Profile" class="btn" />`
+        * 图像按钮`<input type="image" src="button.png" width="20" height="20" alt="Create Profile" />`
+        * 文本和图像结合的按钮`<button type="submit" class="btn"><img src="button.png" width="20" height="20" alt="" />Create Profile</button>
+    * 禁用表单元素 disabled disabled="disabled"
+    * 表单样式
+    ```
+    input:focus, textarea:focus{                      /*input[type="submit"]:focus*/
+        background-color:greenyellow;
+    }
+    input:checked+label{
+        color:green;
+    }
+    textarea:disabled{
+        background-color:#ccc;
+        border-color:#999;
+        color:#666;
+    }
+    input:required, textarea:required{
+        border:2px solid #000;
+    }
+    input[type="email"]:invalid{
+        color:red;
+    }
+    input[type="email"]:vaild{
+        color:black;
+    }
+    ```
+
+* 表格
+    * table caption tr th/td 
+    ```
+    <table>
+        <caption></caption>
+        <thead>
+            <tr>
+                <th scope="col"></th>    /*列标题*/
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"></th>    /*行标题*/
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table
+    ```
+    * 多行多列单元格
+        * colspan="n"      多列
+        * rowspan="n"      多行
