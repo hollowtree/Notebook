@@ -55,7 +55,7 @@
         ```
     1. 按属性选择元素
         |选择器               | 属性值 |
-        |:---------------------:|:------:|
+        |---------------------|:------:|
         |[attribute]          | 匹配指定属性，不论具体值是什么 |
         |[attribute="value"]  | 完全匹配指定属性值 |
         |[attribute~="value"] | 属性值是以空格分隔的多个单词，其中有一个完全匹配指定值 |
@@ -72,11 +72,11 @@
     | zebra stripes | are neat      |    $1 |
 
 
-| Tables        | Are           | Cool  |
-| ------------- |-------------| -----|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| Tables        | Ar      |
+| ------------- |-------------  |
+| col 3 is      | rined |
+| col 2 is      | cente    |
+| zebra stripes | are ne  |
         ```
         p[class]{ };     /*所有具有class属性的段落*/
         ```
