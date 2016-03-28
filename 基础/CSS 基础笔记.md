@@ -65,19 +65,6 @@
         |[attribute$="value"] | 属性值以 value 结尾，value为完整的单词或单词的一部分 |
         |[attribute*="value"] | 属性值为指定值的子字符串 |
 
-
-    | Tables        | Are           | Cool  |
-    | ------- |:------:| -----:|
-    | col 3 is      | right-aligned | $1600 |
-    | col 2 is      | centered      |   $12 |
-    | zebra stripes | are neat      |    $1 |
-
-
-| Tables        | Ar      |
-| ------------- |-------------  |
-| col 3 is      | rined |
-| col 2 is      | cente    |
-| zebra stripes | are ne  |
         ```
         p[class]{ };     /*所有具有class属性的段落*/
         ```
