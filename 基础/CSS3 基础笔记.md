@@ -86,3 +86,6 @@
 * 生成内容的效果
 
 * 使用sprite拼合图像
+
+* 其它
+    * [微格式](http://microformats.org/)
