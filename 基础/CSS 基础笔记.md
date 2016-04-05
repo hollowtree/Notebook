@@ -260,6 +260,7 @@
         * rows="n"            高度
     * 创建选择框
         * select
+        * 使用size属性，指定看到的行数，则可以形成滚动菜单
         ```
         <select id="state" name="state">
             <option value="AL">Alabama</option>
@@ -293,10 +294,14 @@
         ```
     * 创建隐藏字段
         * <input type="hidden" name="step" value="6" />
+    * field和legend
     * 创建提交按钮
         * 按钮`<input type="submit" value="Create Profile" class="btn" />`
         * 图像按钮`<input type="image" src="button.png" width="20" height="20" alt="Create Profile" />`
         * 文本和图像结合的按钮`<button type="submit" class="btn"><img src="button.png" width="20" height="20" alt="" />Create Profile</button>
+    * 创建重置按钮
+        * type="reset"
+        * 只有提交按钮和重置按钮不需要name属性
     * 禁用表单元素 disabled disabled="disabled"
     * 表单样式
     ```
