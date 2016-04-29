@@ -109,16 +109,99 @@ ECMAScript 函数没有传统意义的重载，如果定义了两个名字相同
 创建数组时如果给构造函数只传递一个值也可以创建数组。如果传递的是数值，则会按照该数值创建包含给定项数的数组；而如果传递的是其它类型的参数，则会创建包含那个值的只有一项的数组。
 
 不要在数组字面量的最后一项添加逗号。
+
+数组的 length 属性不是只读的。
 ```
 var flag=new Array(5); flag.length;     //5
 var flag=new Array("5"); flag.length;   //1
 ```
 
+**检测数组**
+```
+Array.isArray(["2","3"]);               //true
+```
+
+**转换数组**
+```
+["red","blue","green"].toString();      //"red,blue,green"
+["red","blue","green"].valueOf();       //["red", "blue", "green"]
+["red","blue","green"].join();          //"red,blue,green"
+["red","blue","green"].join("-");       //"red-blue-green"
+["red","blue","green"].join(" / ");     //"red / blue / green"
+```
+
+**栈方法**
+
+push()返回修改后数组的长度，pop()返回移除的数组的最后一项
+```
+var arr=[1,3,0,9,5];                    //undefined
+arr.push(2,8);                          //7
+arr                                     //[1, 3, 0, 9, 5, 2, 8]
+arr.pop();                              //8
+```
+
+**队列方法**
+
+unshift()返回修改后数组的长度，shift()返回移除的数组的第一项
+```
+var arr=[1,3,0,9,5];                    //undefined
+arr.unshift(7,9);                       //7
+arr                                     //[7, 9, 1, 3, 0, 9, 5]
+arr.shift();                            //7
+```
+
+**重排序方法**
+```
+[1,3,10,9,5].reverse();                       //[5, 9, 10, 3, 1]
+[1,3,10,9,5].sort();                          //[1, 10, 3, 5, 9]
+[1,3,10,9,5].sort(function(a,b){return a-b}); //[1, 3, 5, 9, 10]
+[1,3,10,9,5].sort(function(a,b){return b-a}); //[10, 9, 5, 3, 1]
+```
+
+**操作方法**
+```
+//concat() 与 slice() 不会影响原始数组
+var arr=[2,6,8,0];                   //undefined
+arr.concat([3,7]);                   //[2, 6, 8, 0, 3, 7]
+arr;                                 //[2, 6, 8, 0]
+arr.slice(1);                        //[6, 8, 0]
+arr;                                 //[2, 6, 8, 0]
+arr.slice(1,3);                      //[6, 8]
+arr.slice(-4,-2);                    //[2, 6]
+arr.slice(0,-2);                     //[2, 6]
+arr.slice(3,1);                      //[]
+
+var arr1=[2,6,8,0,5,7,4,9,1];        //undefined
+//删除
+arr1.splice(2,2);                    //[8, 0]
+arr1;                                //[2, 6, 5, 7, 4, 9, 1]
+//插入
+arr1.splice(2,0,45,23,78);           //[]
+arr1;                                //[2, 6, 45, 23, 78, 5, 7, 4, 9, 1]
+//替换
+arr1.splice(2,1,11,12,13,14);        //[45]
+arr1;                                //[2, 6, 11, 12, 13, 14, 23, 78, 5, 7, 4, 9, 1]
+```
+
+**位置方法**  IE9+、Firefox 2+、Safari 3+、Opera 9.5+、Chrome
+```
+[1,2,3,4,5,6,5,4,3,2,1].indexOf(3);         //2
+[1,2,3,4,5,6,5,4,3,2,1].lastIndexOf(3);     //8
+[1,2,3,4,5,6,5,4,3,2,1].indexOf(3,5);       //8
+[1,2,3,4,5,6,5,4,3,2,1].lastIndexOf(3,4);   //2
+[1,2,3,4,5,6,5,4,3,2,1].lastIndexOf(9);     //-1
+```
+
+**迭代方法**
+```
+```
+
+
 
 ### <a id="8">BOM</a>
 [menu](#menu)
 #### window 对象
-#####窗口位置
+**窗口位置**
 `screenLeft` / `screenTop` / `screenX` / `screenY` / `moveTo()` / `moveBy()`
 ```
 //IE11 最大化窗口时
@@ -152,26 +235,28 @@ screenX;          //0
 screenY;          //0
 ```
 
-##### 窗口大小
+**窗口大小**
 `innerWidth` / `innerHeight`
 `outerWidth` / `outerHeight`
 `document.body.clientWidth` / `document.body.clientHeight`
 `document.documentElement.clientWidth` / `document.documentElement.clientWidth`
 `resizeTo()` / `resizeBy()`
 
-##### 导航和打开窗口
+**导航和打开窗口**
 ```
 window.open("http://www.google.com","_blank","height=400,width=600,top=20,left=50,menubar=yes,status=yes,toolbar=yes");
 window.close();
 ```
-##### 间歇调用和超时调用
+
+**间歇调用和超时调用**
 ```
 setTimeout() / clearTimeout() / setInterval() / clearInterval()
 
 var timeoutId=setTimeout(function(){},1000);
 clearTimeout(timeoutId);
 ```
-##### 系统对话框
+
+**系统对话框**
 `alert("");` / `confirm("")` / `prompt("What's your name?", "Tom")`
 
 #### location 对象
