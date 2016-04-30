@@ -192,10 +192,94 @@ arr1;                                //[2, 6, 11, 12, 13, 14, 23, 78, 5, 7, 4, 9
 [1,2,3,4,5,6,5,4,3,2,1].lastIndexOf(9);     //-1
 ```
 
-**迭代方法**
+**迭代方法**  IE9+、Firefox 2+、Safari 3+、Opera 9.5+、Chrome
 ```
+var numbers=[1,2,3,4,5,4,3,2,1];            //undefined
+
+//every() 如果指定函数对每一项都返回true，则返回true
+var everyResult = numbers.every(
+    function(item, index, array){
+        return (item > 2);
+    }
+);                                          //undefined
+everyResult                                 //false
+
+//some() 如果指定函数对任一项返回true，则返回true
+var someResult = numbers.some(
+    function(item, index, array){
+        return (item > 2);
+    }
+);                                          //undefined
+someResult                                  //true
+
+//filter() 返回指定函数会返回 true 的项组成的数组
+var filterResult = numbers.filter(
+    function(item, index, array){
+        return (item > 2);
+    }
+);                                          //undefined
+filterResult                                //[3, 4, 5, 4, 3]
+
+//forEach() 对数组中的每一项运行传入的函数，没有返回值，本质上与使用for循环迭代数组一样
+//可以使其改变数组自身
+numbers.forEach(
+    function(item, index, array){
+        array[index] = item * 2;
+    }
+);                                          //undefined
+numbers;                                    //[2, 4, 6, 8, 10, 8, 6, 4, 2]
+
+//map() 返回每次指定函数调用的结果组成的数组
+var mapResult = numbers.map(
+    function(item, index, array){
+        return item*item;
+    }
+);                                          //undefined
+mapResult;                                  //[4, 16, 36, 64, 100, 64, 36, 16, 4]
 ```
 
+**归并方法**  IE9+、Firefox 3+、Safari 4+、Opera 10.5+、Chrome
+```
+var values = [1,2,3,4,5];                   //undefined
+var sum = values.reduce(
+    function(prev,cur,index,array){
+        return prev + cur;
+    }
+);                                          //undefined
+sum;                                        //15
+
+var sum1 = values.reduce(
+    function(prev,cur,index,array){
+        return prev + cur;
+    }
+,100);                                      //undefined
+sum1;                                       //115
+
+var arr=["L","o","v","e"];                  //undefined
+var sum2 = arr.reduce(
+    function(prev,cur,index,array){
+        return prev+cur;
+    }
+);                                          //undefined
+sum2;                                       //"Love"
+
+var sum3 = arr.reduceRight(
+    function(prev,cur,index,array){
+        return prev+cur;
+    }
+);                                          //undefined
+sum3;                                       //"evoL"
+```
+
+#### Date 类型
+```
+var someDate = new Date(Date.parse("6/24/2016"));            //undefined
+someDate                                                     //Fri Jun 24 2016 00:00:00 GMT+0800 (China Standard Time)
+var someDate = new Date(Date.parse("2016-01-02"));           //undefined
+someDate                                                     //Sat Jan 02 2016 00:00:00 GMT+0800 (China Standard Time)
+var someDate = new Date(Date.parse("2016-11-12T12:23:56"));  //undefined
+someDate                                                     //Sat Nov 12 2016 20:23:56 GMT+0800 (China Standard Time)
+```
 
 
 ### <a id="8">BOM</a>
