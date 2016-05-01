@@ -14,6 +14,14 @@
 * img 添加图像
     * src 提供了将要插入的图像的名称
     * alt 提供了在图像无法获取时应该显示的文本
+    ```
+    <img src="mama.jpg" width=100 height=100 usemap="#map" />
+    <map name="map">
+        <area shap="rect" coords="0,0,50,50" href="" alt="">
+        <area shap="circle" coords="75,75,25" href="" alt="">
+    </map>
+    ```
+
 
 * cite 表示对某内容源的引用或参考。例如，戏剧或书本的标题，歌曲、照片或电影的名称，规范、报纸或法律文件等。
 

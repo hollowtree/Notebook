@@ -1,7 +1,7 @@
 # CSS3 基础笔记
 
 * 浏览器厂商前缀
-    * -webkit-    Webkit、Safari、旧版本的Chrome
+    * -webkit-    Safari、Chrome
     * -moz-       Firefox
     * -ms-        Internet Explorer
     * -o-         Opera

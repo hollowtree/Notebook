@@ -22,6 +22,8 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
+        <meta name="keywords" content="...">
+        <meta name="description" content="...">
         <meta charset="utf-8" />
         <title></title>
     </head>
@@ -53,11 +55,13 @@
 
         <!--创建页脚，当其最近的祖先是body时，表示它是页脚。不是页脚的时候不要加role。-->
         <!--footer还可以放在比如article标签内来创建附录、索引、版权页、许可协议等-->
-        <footer role="contentinfo">          
-        </footer>         
+        <footer role="contentinfo">
+        </footer>
     </body>
     </html>
     ```
+
+* <meta name="viewport" content="width=device-width, initial-scale=1.0">移动端浏览器的宽高与缩放
 
 * 网站创建分级标题时，最好不要从高级别(eg:h3)跳到低级别(eg:h5)。不过可以从低级别跳到高级别。
 

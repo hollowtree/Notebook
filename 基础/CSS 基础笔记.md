@@ -211,8 +211,11 @@
                 <input />
             </p>
             <p>
-                <label></label>
-                <input />
+                <label><input type="text/submit/hidden/button/etc" name="" value=""></label>
+            </p>
+            <p>
+                <label for="input-id">Sample Label</label>
+                <input type="text" id="input-id">
             </p>
         </fieldset>
         <fieldset>
@@ -328,7 +331,7 @@
     ```
 
 * 表格
-    * table caption tr th/td 
+    * table caption tr th/td
     ```
     <table>
         <caption></caption>
