@@ -281,6 +281,91 @@ var someDate = new Date(Date.parse("2016-11-12T12:23:56"));  //undefined
 someDate                                                     //Sat Nov 12 2016 20:23:56 GMT+0800 (China Standard Time)
 ```
 
+#### RegExp 类型
+g全局 i不区分大小写 m多行模式
+元字符 ` ( ) [ ] { } \ ^ $ | ? * + . `
+RegExp 构造函数的两个参数都是字符串，所以在某些情况下要对字符进行双重转义。
+```
+//实例属性
+var pattern = new RegExp("[bc]at", "i");   //undefined
+pattern.global;                            //false
+pattern.ignoreCase;                        //true
+pattern.multiline;                         //false
+pattern.lastIndex;                         //0
+pattern.source;                            //"[bc]at"
+
+//实例方法
+var arr = "12131415";                      //undefined
+var pattern1=/12(13(14(15)?)?)?/gi;        //undefined
+var match1=pattern1.exec(arr);             //undefined
+match1.index;                              //0
+match1.input;                              //"12131415"
+match1[0];                                 //"12131415"
+match1[1];                                 //"131415"
+match1[2];                                 //"1415"
+match1[3];                                 //"15"
+
+var text = "cat, aat, bat, dat, cat, bat"; //undefined
+var pattern2 = /[bc]at/i;                  //undefined
+var match2 = pattern2.exec(text);          //undefined
+match2;                                    //["cat"]
+match2 = pattern2.exec(text);              //["cat"]
+match2 = pattern2.exec(text);              //["cat"]
+
+var pattern3 = /[bc]at/g;                  //undefined
+var match3 = pattern3.exec(text);          //undefined
+match3;                                    //["cat"]
+match3 = pattern3.exec(text);              //["bat"]
+match3 = pattern3.exec(text);              //["cat"]
+match3 = pattern3.exec(text);              //["bat"]
+match3 = pattern3.exec(text);              //null
+```
+
+#### Function 对象
+函数名仅仅是指向函数的指针。
+解析器会对函数声明进行“函数声明提升”，而不会对函数表达式这样做。
+**函数内部属性**
+在函数内部，有两个特殊的对象：arguments 和 this。arguments 的主要用途是保存函数参数，但这个对象还有一个名叫 callee 的属性，该属性是一个指针，指向拥有这个 arguments 对象的函数。
+```
+function factorial(num){
+    if(num<1){
+        return 1;
+    }else{
+        return num * arguments.callee(num - 1);
+        //return num * factorial(num - 1);
+    }
+}
+```
+this 属性、caller属性
+```
+function outer(){inner();}
+function inner(){console.log(inner.caller);}
+outer();    //会在控制台打出函数outer的源代码
+```
+**函数属性和方法**
+每个函数都包含两个非继承而来的方法：apply() 和 call()。这两个方法的用途都是在特定的作用域中调用函数。
+ES5还定义了一个方法：bind()。这个方法会创建一个函数的实例，其this值会被绑定到传给bind()函数的值。
+
+#### 基本包装类型
+**Boolean 类型**
+布尔表达式中的所有对象都会被转化为true，包括使用Boolean构造函数创建的对象。
+最好不要使用布尔对象。
+**Number 类型**
+```
+var num = 34;          //undefined
+num.toFixed(3);        //"34.000"
+var num1=23.4586;      //undefined
+num1.toFixed(2);       //"23.46"
+
+var num2=23;           //undefined
+num2.toExponential(1); //"2.3e+1"
+
+var num3=87;           //undefined
+num3.toPrecision(1);   //"9e+1"
+num3.toPrecision(2);   //"87"
+num3.toPrecision(3);   //"87.0"
+num3.toPrecision(4);   //"87.00"
+```
 
 ### <a id="8">BOM</a>
 [menu](#menu)
