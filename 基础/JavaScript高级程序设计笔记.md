@@ -366,6 +366,60 @@ num3.toPrecision(2);   //"87"
 num3.toPrecision(3);   //"87.0"
 num3.toPrecision(4);   //"87.00"
 ```
+**String 类型**
+```
+//字符方法
+"love".charAt(2);      //"v"
+"love".charCodeAt(2);  //118
+"love"[2];             //"v"
+
+//字符串操作方法
+//拼接字符串
+"love".concat(" the world");           //"love the world"
+"love".concat(" the", " world");       //"love the world"
+//参数为正时，结果相同
+"javascript".slice(1);          //"avascript"
+"javascript".substr(1);         //"avascript"
+"javascript".substring(1);      //"avascript"
+//参数为两个正数时，substr的第二个参数表示截取的字符串的长度
+"javascript".slice(1,3);        //"av"
+"javascript".substr(1,3);       //"ava"
+"javascript".substring(1,3);    //"av"
+//传递参数有负数时，slice()会将传入的负值与字符串的长度相加。
+//substr()将负的第一个参数加上字符串的长度，负的第二个参数转换为0
+//substring()将所有的负值参数转换为0，并将较小的数作为开始位置
+"javascript".slice(-3);         //"ipt"
+"javascript".substr(-3);        //"ipt"
+"javascript".substring(-3);     //"javascript"
+"javascript".slice(2,-3);       //"vascr"
+"javascript".substr(2,-3);      //""
+"javascript".substring(2,-3);   //"ja"
+
+//字符串位置方法
+//从字符串里查找子字符串，子字符串只出现一次时，返回相同值
+//第二个参数指定搜索的开始位置
+//如果没找到子字符串，则返回-1
+"javascript".indexOf("va");     //2
+"javascript".lastIndexOf("va"); //2
+"javascript".indexOf("a");      //1
+"javascript".lastIndexOf("a");  //3
+"javascript".indexOf("a",2);    //3
+"javascript".lastIndexOf("a",2);//1
+"javascript".indexOf("z");      //-1
+
+//trim()方法
+//返回副本，不改变原始字符串
+"  javascript  ".trim();        //"javascript"
+
+//字符串大小写转换方法
+"JavaScript".toLocaleLowerCase();   //"javascript"
+"JavaScript".toLowerCase();         //"javascript"
+"JavaScript".toLocaleUpperCase();   //"JAVASCRIPT"
+"JavaScript".toUpperCase();         //"JAVASCRIPT"
+
+//字符串的模式匹配方法
+```
+
 
 ### <a id="8">BOM</a>
 [menu](#menu)
