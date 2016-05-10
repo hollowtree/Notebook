@@ -1,7 +1,9 @@
 # <a id="menu">笔记</a>
-[基本概念](#3)
-[引用类型](#5)
-[BOM](#8)
+[基本概念 ](#3)
+[引用类型 ](#5)
+[BOM ](#8)
+[DOM ](#10)
+
 
 ### <a id="3">基本概念</a>
 [menu](#menu)
@@ -283,7 +285,9 @@ someDate                                                     //Sat Nov 12 2016 2
 
 #### RegExp 类型
 g全局 i不区分大小写 m多行模式
+
 元字符 ` ( ) [ ] { } \ ^ $ | ? * + . `
+
 RegExp 构造函数的两个参数都是字符串，所以在某些情况下要对字符进行双重转义。
 ```
 //实例属性
@@ -323,8 +327,11 @@ match3 = pattern3.exec(text);              //null
 
 #### Function 对象
 函数名仅仅是指向函数的指针。
+
 解析器会对函数声明进行“函数声明提升”，而不会对函数表达式这样做。
+
 **函数内部属性**
+
 在函数内部，有两个特殊的对象：arguments 和 this。arguments 的主要用途是保存函数参数，但这个对象还有一个名叫 callee 的属性，该属性是一个指针，指向拥有这个 arguments 对象的函数。
 ```
 function factorial(num){
@@ -344,12 +351,15 @@ outer();    //会在控制台打出函数outer的源代码
 ```
 **函数属性和方法**
 每个函数都包含两个非继承而来的方法：apply() 和 call()。这两个方法的用途都是在特定的作用域中调用函数。
+
 ES5还定义了一个方法：bind()。这个方法会创建一个函数的实例，其this值会被绑定到传给bind()函数的值。
 
 #### 基本包装类型
 **Boolean 类型**
 布尔表达式中的所有对象都会被转化为true，包括使用Boolean构造函数创建的对象。
+
 最好不要使用布尔对象。
+
 **Number 类型**
 ```
 var num = 34;          //undefined
@@ -418,6 +428,65 @@ num3.toPrecision(4);   //"87.00"
 "JavaScript".toUpperCase();         //"JAVASCRIPT"
 
 //字符串的模式匹配方法
+//match()方法
+var text = "ecat, aat, bat, dat, cat, bat";      //undefined
+var pattern=/[bc]at/;                            //undefined
+//与pattern.exec(text)相同
+var matches=text.match(pattern);                 //undefined
+matches;                                         //["cat"]
+matches.index;                                   //1
+matches[0];                                      //"cat"
+pattern.lastIndex;                               //0           //书上例子，奇怪这个0是什么
+//
+var pattern1=/[bc]at/g;                          //undefined
+var matches1=text.match(pattern1);               //undefined
+matches1;                                        //["cat", "bat", "cat", "bat"]
+matches1.index;                                  //undefined
+matches1.lastIndex;                              //undefined
+//search()返回字符串中第一个匹配项的索引，如果没有找到匹配项，则返回-1。
+var pos=text.search(/at/g);            //undefined
+pos                                    //2
+//replace()
+text.replace("t","kl");             //"ecakl, aat, bat, dat, cat, bat"
+text.replace(/t/g,"kl");            //"ecakl, aakl, bakl, dakl, cakl, bakl"
+text.replace(/(.at)/g,"word($1)");  //"eword(cat), word(aat), word(bat), word(dat), word(cat), word(bat)"
+text.replace(/(.at)/g,"word($&)");  //"eword(cat), word(aat), word(bat), word(dat), word(cat), word(bat)"
+text.replace(/(.at)/g,"word($$)");  //"eword($), word($), word($), word($), word($), word($)"
+text.replace(/(.at)/g,"word($')");  //"eword(, aat, bat, dat, cat, bat), word(, bat, dat, cat, bat), word(, dat, cat, bat), word(, cat, bat), word(, bat), word()"
+text.replace(/(.at)/g,"word($`)");  //
+"eword(e), word(ecat, ), word(ecat, aat, ), word(ecat, aat, bat, ), word(ecat, aat, bat, dat, ), word(ecat, aat, bat, dat, cat, )"
+//转义字符的函数
+function htmlEacape(text){
+    return text.replace(/[<>"&"]/g,function(match,pos,originalText){
+        switch(match){
+            case "<":
+                return "&lt;";
+            case ">":
+                return "&gt;";
+            case "\"":
+                return "&quot;";
+            case "&":
+                return "&amp;";
+        }
+    });
+}
+//split()方法
+var text = "ecat, aat, bat, dat, cat, bat";     //undefined
+text.split(",");                                //["ecat", " aat", " bat", " dat", " cat", " bat"]
+text.split(",",3);                              //["ecat", " aat", " bat"]
+var tel="111-2343-1256";        //undefined
+tel.split("-");                 //["111", "2343", "1256"]
+tel.split(/-/);                 //["111", "2343", "1256"]
+tel.split(/^-/);                //["111-2343-1256"]
+tel.split(/[^-]+/);             //["", "-", "-", ""]
+
+//localeCompare()方法
+"yellow".localeCompare("green");          //1
+"yellow".localeCompare("yellow");         //0
+"yellow".localeCompare("zero");           //-1
+
+//fromCharCode()方法
+String.fromCharCode(104,101,108,108,111);        //"hello"
 ```
 
 
@@ -491,3 +560,8 @@ clearTimeout(timeoutId);
 
 #### history 对象
 `history.go(-1)` / `history.back()` / `history.forward()`
+
+
+### <a id="10">DOM</a>
+[menu](#menu)
+#### 节点层次
