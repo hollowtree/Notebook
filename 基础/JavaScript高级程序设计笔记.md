@@ -565,3 +565,48 @@ clearTimeout(timeoutId);
 ### <a id="10">DOM</a>
 [menu](#menu)
 #### 节点层次
+**Node 类型**
+```
+someNode.appendChild(newNode);
+
+someNode.insertBefore(newNode,null);                //插入后成为最后一个子节点
+someNode.insertBefore(newNode,someNode.firstChild); //插入后成为第一个子节点
+
+someNode.replaceChild(newNode,someNode.firstChild); //替换第一个子节点
+
+someNode.removeChild(someNode.firstChild);          //移除第一个子节点
+
+someNode.cloneNode(true);                           //深复制一个节点
+someNode.cloneNode(false);                          //浅复制一个节点
+
+normalize();
+```
+
+**Document 类型**
+```
+document.documentElement;       //取得对 <html> 的引用
+document.body;                  //取得对 <body> 的引用
+document.doctype;               //取得对 <!DOCTYPE> 的引用
+
+document.title;                 //取得文档标题
+document.URL;                   //取得完整的URL
+document.domain;                //取得域名
+document.referrer;              //取得来源页面的URL
+
+document.getElementById("id");
+document.getElementsByTagName("div");
+document.getElementsByTagName("div").namedItem("myDiv"); //获取页面内name为myDiv的div元素
+document.getElementsByTagName("div")["myDiv"];           //同上
+document.getElementsByName()                             //返回带有给定name特性的所有元素
+
+document.anchors;       //包含文档中所有带name特性的<a>元素
+document.forms;         //包含文档中所有<form>元素
+document.images;        //包含文档中所有的<img>元素
+document.links;         //包含文档中所有带href特性的<a>元素
+
+document.write();
+document.writeln();
+document.open();
+document.close();
+
+```
