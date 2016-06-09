@@ -162,10 +162,3 @@ h1{
 //index.js 增加的部分
 require('./helloworld.css');
 ```
-
-###笔记Ⅳ
-目标：
-
-* 引入js/css/less/styl
-
-[demo](https://github.com/hollowtree/hollowtree.github.io/tree/master/demo/pages/try-webpack/test1)
